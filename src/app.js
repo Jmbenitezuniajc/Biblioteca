@@ -8,6 +8,7 @@ const sequelize = require('./config/database.js')
 const swaggerSpec = require('./config/swagger.js')
 const usersRoutes = require('./routes/users.routes.js')
 const rolesRoutes = require('./routes/roles.routes.js')
+const authRoutes = require('./routes/auth.routes.js')
 
 const app = express()
 
@@ -21,6 +22,8 @@ app.use("/api-doc", swaggerUI.serve, swaggerUI.setup(swaggerJSDoc(swaggerSpec)))
 //Configuracion de routes - services
 app.use(usersRoutes)
 app.use(rolesRoutes)
+app.use(authRoutes)
+
 
 
 // Iniciar app
