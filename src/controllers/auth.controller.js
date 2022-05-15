@@ -1,5 +1,6 @@
 const userModel = require('../models/user.model.js')
 const { compare } = require('../utils/Bcrypt')
+const { tokenSing } = require('../utils/jwt')
 
 const login = async (req, res) => {
     try {
@@ -16,11 +17,17 @@ const login = async (req, res) => {
             res.json({ error: "User not found" });
         } else {
             const checkpass = await compare(usr_pass, user.usr_pass)
+            const tokenSession = await tokenSing(user)
 
             console.log(checkpass)
 
             if (checkpass) {
-                res.json(user)
+                res.json(
+                    {
+                        data: user,
+                        tokenSession
+                    }
+                )
             }
 
             if (!checkpass) {
