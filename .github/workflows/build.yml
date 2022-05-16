@@ -2,7 +2,11 @@ name: Build
 on:
   push:
     branches:
-         develop
+        - Master
+        - develop
+        - JuanBenitez
+        - JuanManuelSoto
+        - KevinSteveSoto
   pull_request:
     types: [opened, synchronize, reopened]
 jobs:
