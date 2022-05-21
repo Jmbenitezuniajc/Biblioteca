@@ -12,10 +12,17 @@ const login = async (req, res) => {
             }
         })
 
+        console.log('ESTADO USER:'+user.usr_state)
+
         if (!user) {
             res.status(404)
             res.json({ error: "User not found" });
-        } else {
+        }
+        if (user.usr_state === false) {
+            res.status(404)
+            res.json({ error: "User Inactive" });
+        }
+        else {
             const checkpass = await compare(usr_pass, user.usr_pass)
             const tokenSession = await tokenSing(user)
 

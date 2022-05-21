@@ -30,8 +30,6 @@ app.use(authorRoutes)
 app.use(booksRoutes)
 app.use(loansRoutes)
 
-
-
 // Iniciar app
 const port = process.env.port
 app.listen(port, () => {
@@ -39,9 +37,8 @@ app.listen(port, () => {
     connectsequelize();
 })
 
-
-// Validar conexion a base de datos
-async function connectsequelize() {
+// Validar conexion BD
+const connectsequelize = async () => {
     try {
         await sequelize.authenticate();
         console.log('Connection has been established successfully.');
@@ -49,5 +46,3 @@ async function connectsequelize() {
         console.error('Unable to connect to the database:', error);
     }
 }
-
-

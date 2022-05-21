@@ -1,13 +1,13 @@
 const { Router } = require('express')
-const { getUsers, createUsers } = require('../controllers/users.controller.js')
+const { getUsers, createUsers, updateUsers, getUsersId } = require('../controllers/users.controller.js')
 const { checkUserAuth, checkRoleAuth } = require('../utils/auth.js')
 
 const router = Router();
 
-router.get('/findUsers', checkUserAuth, checkRoleAuth([1, 2]), getUsers);
+router.get('/findUsers', getUsers);
 router.post('/createUsers', checkUserAuth, checkRoleAuth([1, 2]), createUsers);
-router.put('/users/:id');
+router.put('/updateUsers/:id', checkUserAuth, checkRoleAuth([1, 2]),updateUsers);
+router.get('/findUsersId/:id', checkUserAuth, checkRoleAuth([1, 2]),getUsersId);
 router.delete('/users/:id');
-router.get('/users/:id');
 
 module.exports = router;
