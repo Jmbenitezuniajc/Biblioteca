@@ -4,7 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "npx jest",
+    "start": "node src/app.js",
+    "build:deploy": "cross-env NODE_ENV=production webpack"
   },
   "keywords": [],
   "author": "",
