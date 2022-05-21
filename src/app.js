@@ -11,6 +11,7 @@ const rolesRoutes = require('./routes/roles.routes.js')
 const authRoutes = require('./routes/auth.routes.js')
 const authorRoutes = require('./routes/authors.routes.js')
 const booksRoutes = require('./routes/books.routes.js')
+const loansRoutes = require('./routes/loans.routes.js')
 
 const app = express()
 
@@ -27,6 +28,7 @@ app.use(rolesRoutes)
 app.use(authRoutes)
 app.use(authorRoutes)
 app.use(booksRoutes)
+app.use(loansRoutes)
 
 
 
