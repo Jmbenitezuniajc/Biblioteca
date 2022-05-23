@@ -18,7 +18,7 @@ const login = async (req, res) => {
             res.status(404)
             res.json({ error: "User not found" });
         }
-        if (user.usr_state === false) {
+        else if (user.usr_state === false) {
             res.status(404)
             res.json({ error: "User Inactive" });
         }
